@@ -1,7 +1,7 @@
-import Layout from '../components/Layout';
+import { Layout } from '../components';
 
 const IndexPage: React.FC = () => (
-  <Layout>
+  <Layout title='Solicitação de Taxas'>
     <h1>Hello Next.js 👋</h1>
   </Layout>
 );

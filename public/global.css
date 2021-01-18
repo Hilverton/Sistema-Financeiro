@@ -1,0 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100vh;
+  width: 100vw;
+  background-color: var(--white);
+}
+
+:root {
+  --primary: #228a95;
+  --primary-2: #187680;
+  --secondary: #ef9c4b;
+  --secondary-2: #fd8030;
+  --white: #ffffff;
+  --font: #777777;
+  --danger: #bc3434;
+  --background: #f8f8f8;
+}
