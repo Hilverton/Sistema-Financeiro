@@ -1,13 +1,26 @@
+import { useState, ChangeEvent } from 'react';
 import { Layout, Input } from '../../components';
+
 import styles from './solicitar.module.css';
 
+import { cpfMask } from '../../utils';
+
 const Solicitar: React.FC = () => {
+  const [cpfClient, setCpfClient] = useState('');
   return (
     <Layout title='Solicitar Empréstimo'>
       <div className={styles.container}>
         <h1>Busque o Cliente</h1>
         <section className={styles.input_container}>
-          <Input second placeholder='XXX.XXX.XXX-XX' type='text' />
+          <Input
+            second
+            placeholder='XXX.XXX.XXX-XX'
+            type='text'
+            value={cpfClient}
+            onChange={(event: ChangeEvent<HTMLInputElement>) =>
+              setCpfClient(cpfMask(event.target.value))
+            }
+          />
           <button className={styles.button} type='button'>
             Buscar
           </button>

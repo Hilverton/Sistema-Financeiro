@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, ChangeEvent } from 'react';
 import { Layout, Input } from '../components';
 
 import styles from './index.module.css';
@@ -19,7 +19,9 @@ const IndexPage: React.FC = () => {
             placeholder='R$ 0,00'
             className={styles.input}
             value={text}
-            onChange={(event) => setText(moneyMask(event.target.value))}
+            onChange={(event: ChangeEvent<HTMLInputElement>) =>
+              setText(moneyMask(event.target.value))
+            }
           />
           <button
             type='button'
