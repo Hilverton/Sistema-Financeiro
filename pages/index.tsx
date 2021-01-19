@@ -1,20 +1,9 @@
 import { useState } from 'react';
-import { Layout } from '../components';
+import { Layout, Input } from '../components';
 
 import styles from './index.module.css';
 
-export const moneyMask = (value: string) => {
-  let newValue = value.concat('');
-  newValue = newValue.replace(/[\D]+/g, '');
-  newValue += '';
-  newValue = newValue.replace(/([0-9]{2})$/g, ',$1');
-
-  if (newValue.length > 6) {
-    newValue = newValue.replace(/([0-9]{3}),([0-9]{2}$)/g, '.$1,$2');
-  }
-  if (newValue.length === 0) return '';
-  return 'R$ '.concat(newValue);
-};
+import { moneyMask } from '../utils';
 
 const IndexPage: React.FC = () => {
   const [text, setText] = useState('');
@@ -25,7 +14,7 @@ const IndexPage: React.FC = () => {
       <section className={styles.container}>
         <h1 className={styles.title}>Valor Desejado</h1>
         <div>
-          <input
+          <Input
             type='text'
             placeholder='R$ 0,00'
             className={styles.input}

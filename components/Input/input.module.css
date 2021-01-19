@@ -1,0 +1,15 @@
+.input_primary,
+.input_secondary {
+  background-color: var(--background);
+  height: 40px;
+  width: 300px;
+  border: none;
+  font-size: 18px;
+  padding-left: 20px;
+  box-sizing: border-box;
+}
+
+.input_primary {
+  text-align: center;
+  margin-right: 20px;
+}

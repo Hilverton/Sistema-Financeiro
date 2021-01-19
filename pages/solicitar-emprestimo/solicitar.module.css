@@ -1,0 +1,70 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.container h1 {
+  font-size: 30px;
+  color: var(--primary);
+  margin-bottom: 28px;
+}
+
+.input_container {
+  display: flex;
+  margin-bottom: 35px;
+}
+
+.button {
+  background-color: var(--primary);
+  border: none;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  height: 40px;
+  width: 80px;
+  color: var(--white);
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.client {
+  width: 380px;
+  height: 300px;
+  background-color: var(--background);
+  padding: 22px 0 25px;
+  text-align: center;
+}
+
+.title {
+  font-size: 29px;
+  color: var(--font);
+  margin-bottom: 20px;
+}
+
+.cpf,
+.name {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.cpf {
+  color: var(--secondary);
+}
+
+.name {
+  color: var(--primary);
+  font-weight: bold;
+}
+
+.client button {
+  height: 77px;
+  width: 300px;
+  background-color: var(--primary);
+  border: none;
+  border-radius: 5px;
+  font-size: 33px;
+  color: var(--white);
+  font-weight: bold;
+  cursor: pointer;
+}
