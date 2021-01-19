@@ -80,6 +80,52 @@
   opacity: 0.4;
 }
 
+.card_section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card_info {
+  width: 90%;
+  display: flex;
+  margin-bottom: 30px;
+}
+
+.side {
+  width: 50%;
+  text-align: center;
+}
+
+.side_warning {
+  font-size: 16px;
+  color: var(--primary);
+  text-align: left !important;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.side input {
+  width: 90%;
+  height: 60px;
+  margin: 0 auto 12px;
+  font-size: 16px;
+  font-style: italic;
+  background-color: var(--background);
+  border: none;
+  padding-left: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.section_title {
+  font-size: 18px;
+  color: var(--primary);
+  margin-bottom: 20px;
+}
+
 .modality_section {
   text-align: center;
 }

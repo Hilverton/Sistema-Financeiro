@@ -38,24 +38,52 @@ const Solicitar: React.FC = () => {
             </section>
           </>
         )}
-
-        <section className={styles.modality_section}>
-          <h2>Escolha a modalidade:</h2>
-          <div className={styles.modality_buttons}>
-            <button type='button' className={styles.button_main}>
-              Cartão de Crédito
-            </button>
-            <p>Ou</p>
-            <button
-              type='button'
-              disabled
-              className={styles.button_main_disabled}
-            >
-              Crédito Consignado
-            </button>
-            <span>Em Breve</span>
+        <section className={styles.card_section}>
+          <div className={styles.card_info}>
+            <div className={styles.side}>
+              <p className={styles.section_title}>Insira os dados do Cartão:</p>
+              <input placeholder='Lara B Esquivel' />
+              <input placeholder='000000000000' />
+              <input placeholder='Data de Validade' />
+              <input placeholder='CVC' />
+            </div>
+            <div className={styles.side}>
+              <p className={styles.section_title}>
+                Faça o upload dos anexos do cartão:
+              </p>
+              <input placeholder='Cartão de Crédito (Frente)' />
+              <input placeholder='Cartão de Crédito (Verso)' />
+              <input placeholder='Selfie com cartão de crédito' />
+              <p className={styles.side_warning}>
+                Atenção: As fotos devem estar legíveis, com todas as informações
+                visíveis do cartão.
+              </p>
+            </div>
           </div>
+          <button type='button' className={styles.button_main}>
+            Continuar
+          </button>
         </section>
+
+        {false && (
+          <section className={styles.modality_section}>
+            <h2>Escolha a modalidade:</h2>
+            <div className={styles.modality_buttons}>
+              <button type='button' className={styles.button_main}>
+                Cartão de Crédito
+              </button>
+              <p>Ou</p>
+              <button
+                type='button'
+                disabled
+                className={styles.button_main_disabled}
+              >
+                Crédito Consignado
+              </button>
+              <span>Em Breve</span>
+            </div>
+          </section>
+        )}
 
         {false && (
           <section className={styles.container_success}>
