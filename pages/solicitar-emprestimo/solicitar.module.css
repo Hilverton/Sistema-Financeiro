@@ -3,9 +3,10 @@
   flex-direction: column;
   align-items: center;
   margin-bottom: 50px;
+  overflow-x: hidden;
 }
 
-.container h1 {
+.title_page {
   font-size: 30px;
   color: var(--primary);
   margin-bottom: 28px;
@@ -57,14 +58,91 @@
   font-weight: bold;
 }
 
-.client button {
+.button_main {
   height: 77px;
   width: 300px;
   background-color: var(--primary);
   border: none;
   border-radius: 5px;
-  font-size: 33px;
+  font-size: 25px;
   color: var(--white);
   font-weight: bold;
   cursor: pointer;
+  margin-bottom: 12px;
+}
+
+.container_success {
+  width: 100%;
+}
+
+.container_success .title_page {
+  text-align: center;
+}
+
+.request_info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.request_item {
+  width: 48%;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 25px;
+  background-color: var(--box-2);
+  margin-bottom: 20px;
+}
+
+.request_item_card {
+  margin: 0 10px 0 10px;
+}
+
+.request_item_title,
+.request_item_card,
+.request_item_text {
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.request_item_title {
+  color: var(--primary);
+}
+
+.request_item_text {
+  color: var(--font);
+  margin: 0 10px;
+}
+
+.box_request_item {
+  display: flex;
+  align-items: center;
+}
+
+.request_item_value,
+.request_item_qtd {
+  font-size: 25px;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.request_item_value {
+  color: var(--green);
+}
+
+.request_item_qtd {
+  color: var(--secondary);
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.warning_request {
+  font-size: 16px;
+  color: var(--primary);
 }
