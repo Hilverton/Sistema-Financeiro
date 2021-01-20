@@ -1,5 +1,7 @@
 import { useState, ChangeEvent } from 'react';
-import { Layout, Input } from '../components';
+import { Layout, Input, Table } from '../components';
+
+import api from '../api.json';
 
 import styles from './index.module.css';
 
@@ -13,7 +15,7 @@ const IndexPage: React.FC = () => {
     <Layout title='Solicitação de Taxas'>
       <section className={styles.container}>
         <h1 className={styles.title}>Valor Desejado</h1>
-        <div>
+        <div className={styles.box_input}>
           <Input
             type='text'
             placeholder='R$ 0,00'
@@ -31,6 +33,10 @@ const IndexPage: React.FC = () => {
             Calcular
           </button>
         </div>
+        {showTable &&
+          api.rateTable.map((table) => (
+            <Table name={table.name} installments={table.installments} />
+          ))}
         {showTable && (
           <footer className={styles.footer}>
             <p className={styles.info}>Nome: </p>
