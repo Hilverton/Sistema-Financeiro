@@ -1,27 +1,28 @@
+import { formattedNumber } from '../../utils';
+
 import styles from './table.module.css';
 
-const formattedNumber = (number: number): string => {
-  return number.toLocaleString('pt-BR', {
-    style: 'currency',
-    currency: 'BRL',
-  });
-};
+const Table: React.FC<TableProps> = ({
+  name,
+  installments,
+  selectedLine,
+  setChange,
+  setChangeLine,
+}) => {
+  const handleClick = (
+    id: number,
+    nome: string,
+    parcelas: number,
+    valor: number,
+  ) => {
+    setChangeLine({ name: nome, id });
+    setChange({
+      nome,
+      parcelas,
+      valor,
+    });
+  };
 
-type Installments = {
-  id: number;
-  installments: number;
-  installmentInterest: number;
-  installmentValue: number;
-  fullValue: number;
-  comission: number;
-};
-
-type TableProps = {
-  name: string;
-  installments: Installments[];
-};
-
-const Table: React.FC<TableProps> = ({ name, installments }) => {
   return (
     <>
       <div className={styles.container}>
@@ -38,17 +39,35 @@ const Table: React.FC<TableProps> = ({ name, installments }) => {
           </tr>
         </thead>
         <tbody>
-          {installments.map((item: Installments) => (
-            <tr key={item.id}>
-              <td className={styles.td}>{item.installments}</td>
-              <td className={styles.td}>{item.installmentInterest}%</td>
-              <td className={styles.td}>
-                {formattedNumber(item.installmentValue)}
-              </td>
-              <td className={styles.td}>{formattedNumber(item.fullValue)}</td>
-              <td className={styles.td}>{formattedNumber(item.comission)}</td>
-            </tr>
-          ))}
+          {installments.map((item: Installments) => {
+            const color =
+              selectedLine?.name === name && selectedLine?.id === item.id
+                ? styles.td_color
+                : styles.td;
+
+            return (
+              <tr
+                key={item.id}
+                onClick={() =>
+                  handleClick(
+                    item.id,
+                    name,
+                    item.installments,
+                    item.installmentValue,
+                  )
+                }
+                className={styles.table_row}
+              >
+                <td className={color}>{item.installments}</td>
+                <td className={color}>{item.installmentInterest}%</td>
+                <td className={color}>
+                  {formattedNumber(item.installmentValue)}
+                </td>
+                <td className={color}>{formattedNumber(item.fullValue)}</td>
+                <td className={color}>{formattedNumber(item.comission)}</td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
     </>

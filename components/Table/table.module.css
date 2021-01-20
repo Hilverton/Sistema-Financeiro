@@ -29,9 +29,21 @@
   color: var(--font);
 }
 
-.td {
+.table_row {
+  cursor: pointer;
+}
+
+.td,
+.td_color {
   height: 50px;
   text-align: center;
   color: var(--font);
+}
+
+.td {
   background-color: var(--white);
+}
+
+.td_color {
+  background-color: #efdf4b;
 }

@@ -2,14 +2,15 @@ import { useState, ChangeEvent } from 'react';
 import { Layout, Input, Table } from '../components';
 
 import api from '../api.json';
+import { moneyMask, formattedNumber } from '../utils';
 
 import styles from './index.module.css';
-
-import { moneyMask } from '../utils';
 
 const IndexPage: React.FC = () => {
   const [text, setText] = useState('');
   const [showTable, setShowTable] = useState(false);
+  const [dataTable, setDataTable] = useState<DataTable>();
+  const [selectedLine, setSelectedLine] = useState<SelectedLineType>();
 
   return (
     <Layout title='Solicitação de Taxas'>
@@ -20,9 +21,9 @@ const IndexPage: React.FC = () => {
             type='text'
             placeholder='R$ 0,00'
             className={styles.input}
-            value={text}
+            value={moneyMask(text)}
             onChange={(event: ChangeEvent<HTMLInputElement>) =>
-              setText(moneyMask(event.target.value))
+              setText(event.target.value)
             }
           />
           <button
@@ -35,13 +36,21 @@ const IndexPage: React.FC = () => {
         </div>
         {showTable &&
           api.rateTable.map((table) => (
-            <Table name={table.name} installments={table.installments} />
+            <Table
+              name={table.name}
+              installments={table.installments}
+              setChange={setDataTable}
+              setChangeLine={setSelectedLine}
+              selectedLine={selectedLine}
+            />
           ))}
         {showTable && (
           <footer className={styles.footer}>
-            <p className={styles.info}>Nome: </p>
-            <p className={styles.info}>Parcelas: </p>
-            <p className={styles.info}>Valor da Parcela: </p>
+            <p className={styles.info}>Nome: {dataTable?.nome}</p>
+            <p className={styles.info}>Parcelas: {dataTable?.parcelas}</p>
+            <p className={styles.info}>
+              Valor da Parcela: {formattedNumber(dataTable?.valor)}
+            </p>
             <button
               type='button'
               className={styles.button}
