@@ -106,17 +106,20 @@
   margin: 0 auto;
 }
 
-.side input {
+.side input,
+.input_file {
   width: 90%;
   height: 60px;
   margin: 0 auto 12px;
   font-size: 16px;
   font-style: italic;
+  font-family: sans-serif;
   background-color: var(--background);
+  color: var(--font);
   border: none;
-  padding-left: 20px;
+  padding: 0 20px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -229,4 +232,13 @@
 .warning_request {
   font-size: 16px;
   color: var(--primary);
+}
+
+.btn_default {
+  cursor: pointer;
+  text-decoration-line: underline;
+}
+
+.btn_default [hidden] {
+  display: none !important;
 }

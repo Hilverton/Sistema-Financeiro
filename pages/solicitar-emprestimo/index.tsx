@@ -51,9 +51,24 @@ const Solicitar: React.FC = () => {
               <p className={styles.section_title}>
                 Faça o upload dos anexos do cartão:
               </p>
-              <input placeholder='Cartão de Crédito (Frente)' />
-              <input placeholder='Cartão de Crédito (Verso)' />
-              <input placeholder='Selfie com cartão de crédito' />
+              <div className={styles.input_file}>
+                <p>Cartão de Crédito (Frente)</p>
+                <label htmlFor='file_input' className={styles.btn_default}>
+                  Adicionar <input type='file' id='file_input' hidden />
+                </label>
+              </div>
+              <div className={styles.input_file}>
+                <p>Cartão de Crédito (Verso)</p>
+                <label htmlFor='file_input' className={styles.btn_default}>
+                  Adicionar <input type='file' id='file_input' hidden />
+                </label>
+              </div>
+              <div className={styles.input_file}>
+                <p>Selfie com cartão de crédito</p>
+                <label htmlFor='file_input' className={styles.btn_default}>
+                  Adicionar <input type='file' id='file_input' hidden />
+                </label>
+              </div>
               <p className={styles.side_warning}>
                 Atenção: As fotos devem estar legíveis, com todas as informações
                 visíveis do cartão.
