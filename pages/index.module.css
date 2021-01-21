@@ -12,6 +12,18 @@
 
 .box_input {
   margin-bottom: 30px;
+  display: flex;
+}
+
+.box_input div {
+  display: flex;
+  flex-direction: column;
+}
+
+.warning {
+  font-size: 12px;
+  color: var(--danger);
+  margin-top: 5px;
 }
 
 .input {
