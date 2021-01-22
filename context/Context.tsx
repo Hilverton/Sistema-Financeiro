@@ -2,17 +2,12 @@ import { useState, createContext, useEffect } from 'react';
 
 import api from '../api.json';
 
-const DEFAULT_VALUE = {
-  rateTable: api.rateTable,
-  selectedLine: { name: '', id: 0 },
-};
-
 export const DataContext = createContext<PropsContext>({} as PropsContext);
 
 export const DataProvider: React.FC = ({ children }) => {
   const [loanAmount, setLoanAmount] = useState<number>(0);
   const [rateTable, setRateTable] = useState(api.rateTable);
-  const [selectedLine, setSelectedLine] = useState(DEFAULT_VALUE.selectedLine);
+  const [selectedLine, setSelectedLine] = useState({} as SelectedLineType);
 
   const makeTable = () => {
     const updatedTable = rateTable.map((tableItem: RateTable) => {
@@ -39,8 +34,8 @@ export const DataProvider: React.FC = ({ children }) => {
     setLoanAmount(value);
   };
 
-  const saveSelectedLine = (name: string, id: number) => {
-    setSelectedLine({ name, id });
+  const saveSelectedLine = (name: string, item: Installments) => {
+    setSelectedLine({ name, item });
   };
 
   return (

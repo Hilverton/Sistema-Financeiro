@@ -2,15 +2,24 @@ import { useState, ChangeEvent, useContext } from 'react';
 import { useRouter } from 'next/router';
 import { Layout, Input } from '../../components';
 
-import { UserContext } from '../../context';
+import { UserContext, DataContext } from '../../context';
 
 import styles from './solicitar.module.css';
 
 import { cpfMask } from '../../utils';
 
+const mask = (value: number) => {
+  return value.toLocaleString('pt-BR', {
+    minimumFractionDigits: 2,
+    style: 'currency',
+    currency: 'BRL',
+  });
+};
+
 const Solicitar: React.FC = () => {
   const router = useRouter();
   const { findClient, oneClient, saveCard } = useContext(UserContext);
+  const { selectedLine, loanAmount } = useContext(DataContext);
   const [cpfClient, setCpfClient] = useState('');
   const [firstSection, setFirstSection] = useState(true);
   const [secondSection, setSecondSection] = useState(false);
@@ -216,7 +225,9 @@ const Solicitar: React.FC = () => {
               <div className={styles.request_item}>
                 <p className={styles.request_item_title}>Taxa de Juros</p>
                 <div className={styles.box_request_item}>
-                  <span className={styles.request_item_qtd}>12%</span>
+                  <span className={styles.request_item_qtd}>
+                    {selectedLine?.item?.installmentInterest}%
+                  </span>
                   <span
                     style={{ color: '#228a95', fontSize: 30 }}
                     className='ion-checkmark'
@@ -242,7 +253,9 @@ const Solicitar: React.FC = () => {
               <div className={styles.request_item}>
                 <p className={styles.request_item_title}>Parcelas:</p>
                 <div className={styles.box_request_item}>
-                  <span className={styles.request_item_qtd}>12</span>
+                  <span className={styles.request_item_qtd}>
+                    {selectedLine?.item?.installments}
+                  </span>
                   <span
                     style={{ color: '#228a95', fontSize: 30 }}
                     className='ion-checkmark'
@@ -253,7 +266,9 @@ const Solicitar: React.FC = () => {
               <div className={styles.request_item}>
                 <p className={styles.request_item_title}>Valor desejado:</p>
                 <div className={styles.box_request_item}>
-                  <span className={styles.request_item_value}>R$ 7.200,00</span>
+                  <span className={styles.request_item_value}>
+                    {mask(loanAmount)}
+                  </span>
                   <span
                     style={{ color: '#228a95', fontSize: 30 }}
                     className='ion-checkmark'
@@ -264,7 +279,9 @@ const Solicitar: React.FC = () => {
               <div className={styles.request_item}>
                 <p className={styles.request_item_title}>Valor da Parcela:</p>
                 <div className={styles.box_request_item}>
-                  <span className={styles.request_item_value}>R$433,33</span>
+                  <span className={styles.request_item_value}>
+                    {mask(selectedLine?.item?.installmentValue || 0)}
+                  </span>
                   <span
                     style={{ color: '#228a95', fontSize: 30 }}
                     className='ion-checkmark'
@@ -278,7 +295,9 @@ const Solicitar: React.FC = () => {
                   Valor Total do Empréstimo:
                 </p>
                 <div className={styles.box_request_item}>
-                  <span className={styles.request_item_value}>R$ 7.200,00</span>
+                  <span className={styles.request_item_value}>
+                    {mask(selectedLine?.item?.fullValue || 0)}
+                  </span>
                   <span
                     style={{ color: '#228a95', fontSize: 30 }}
                     className='ion-checkmark'

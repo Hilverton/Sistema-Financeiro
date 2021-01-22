@@ -7,23 +7,16 @@ type Installments = {
   comission: number;
 };
 
-type DataTable = {
-  nome: string;
-  parcelas: number;
-  valor: number;
-};
-
 type SelectedLineType = {
   name: string;
-  id: number;
+  item: Installments;
 };
 
 type TableProps = {
   name: string;
   installments: Installments[];
   selectedLine: SelectedLineType | undefined;
-  setChange: Dispatch<SetStateAction<DataTable | undefined>>;
-  setChangeLine: (name: string, id: number) => void;
+  setChangeLine: (name: string, item: Installments) => void;
 };
 
 type RateTable = {
@@ -38,7 +31,7 @@ type PropsContext = {
   loanAmount: number;
   saveLoanAmount: (value: number) => void;
   makeTable: () => void;
-  saveSelectedLine: (name: string, id: number) => void;
+  saveSelectedLine: (name: string, item: Installments) => void;
 };
 
 type ClientType = {

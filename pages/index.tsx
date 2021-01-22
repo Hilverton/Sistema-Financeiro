@@ -18,7 +18,6 @@ const IndexPage: React.FC = () => {
   } = useContext(DataContext);
   const [text, setText] = useState('');
   const [showTable, setShowTable] = useState(false);
-  const [dataTable, setDataTable] = useState<DataTable>();
   const [errorInput, setErrorInput] = useState('');
 
   const handleClick = () => {
@@ -71,17 +70,19 @@ const IndexPage: React.FC = () => {
               key={table.id}
               name={table.name}
               installments={table.installments}
-              setChange={setDataTable}
               setChangeLine={saveSelectedLine}
               selectedLine={selectedLine}
             />
           ))}
         {showTable && (
           <footer className={styles.footer}>
-            <p className={styles.info}>Nome: {dataTable?.nome}</p>
-            <p className={styles.info}>Parcelas: {dataTable?.parcelas}</p>
+            <p className={styles.info}>Nome: {selectedLine?.name}</p>
             <p className={styles.info}>
-              Valor da Parcela: {formattedNumber(dataTable?.valor || 0)}
+              Parcelas: {selectedLine?.item?.installments}
+            </p>
+            <p className={styles.info}>
+              Valor da Parcela:{' '}
+              {formattedNumber(selectedLine?.item?.installmentValue || 0)}
             </p>
             <button
               type='button'

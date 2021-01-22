@@ -9,18 +9,13 @@ const Table: React.FC<TableProps> = ({
   setChange,
   setChangeLine,
 }) => {
-  const handleClick = (
-    id: number,
-    nome: string,
-    parcelas: number,
-    valor: number,
-  ) => {
-    setChangeLine(nome, id);
-    setChange({
-      nome,
-      parcelas,
-      valor,
-    });
+  const handleClick = (nome: string, item: Installments) => {
+    setChangeLine(nome, item);
+    // setChange({
+    //   nome,
+    //   parcelas,
+    //   valor,
+    // });
   };
 
   return (
@@ -41,21 +36,14 @@ const Table: React.FC<TableProps> = ({
         <tbody>
           {installments.map((item: Installments) => {
             const color =
-              selectedLine?.name === name && selectedLine?.id === item.id
+              selectedLine?.name === name && selectedLine?.item?.id === item.id
                 ? styles.td_color
                 : styles.td;
 
             return (
               <tr
                 key={item.id}
-                onClick={() =>
-                  handleClick(
-                    item.id,
-                    name,
-                    item.installments,
-                    item.installmentValue,
-                  )
-                }
+                onClick={() => handleClick(name, item)}
                 className={styles.table_row}
               >
                 <td className={color}>{item.installments}</td>
