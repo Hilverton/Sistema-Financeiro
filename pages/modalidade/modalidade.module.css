@@ -1,0 +1,58 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 50px;
+  overflow-x: hidden;
+}
+
+.modality_section {
+  text-align: center;
+}
+
+.modality_section h2 {
+  font-size: 22px;
+  font-weight: normal;
+  color: var(--primary);
+  margin-bottom: 30px;
+}
+
+.modality_buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.modality_buttons p {
+  margin: 9px 0 25px;
+  font-size: 25px;
+  color: var(--font);
+}
+
+.modality_buttons span {
+  font-size: 15px;
+  color: var(--font);
+  margin-left: auto;
+}
+
+.button_main,
+.button_main_disabled {
+  height: 77px;
+  width: 300px;
+  background-color: var(--primary);
+  border: none;
+  border-radius: 5px;
+  font-size: 25px;
+  color: var(--white);
+  font-weight: bold;
+}
+
+.button_main {
+  cursor: pointer;
+  margin-bottom: 12px;
+}
+
+.button_main_disabled {
+  margin-bottom: 7px;
+  opacity: 0.4;
+}

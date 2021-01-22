@@ -1,0 +1,82 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 50px;
+  overflow-x: hidden;
+}
+
+.card_section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card_info {
+  width: 90%;
+  display: flex;
+  margin-bottom: 30px;
+}
+
+.side {
+  width: 50%;
+  text-align: center;
+}
+
+.section_title {
+  font-size: 18px;
+  color: var(--primary);
+  margin-bottom: 20px;
+}
+
+.side input,
+.input_file {
+  width: 90%;
+  height: 60px;
+  margin: 0 auto 12px;
+  font-size: 16px;
+  font-style: italic;
+  font-family: sans-serif;
+  background-color: var(--background);
+  color: var(--font);
+  border: none;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.side_warning {
+  font-size: 16px;
+  color: var(--primary);
+  text-align: left !important;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.button_main,
+.button_main_disabled {
+  height: 77px;
+  width: 300px;
+  background-color: var(--primary);
+  border: none;
+  border-radius: 5px;
+  font-size: 25px;
+  color: var(--white);
+  font-weight: bold;
+}
+
+.button_main {
+  cursor: pointer;
+  margin-bottom: 12px;
+}
+
+.btn_default {
+  cursor: pointer;
+  text-decoration-line: underline;
+}
+
+.btn_default [hidden] {
+  display: none !important;
+}
