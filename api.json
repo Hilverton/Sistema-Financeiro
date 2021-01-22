@@ -71,6 +71,15 @@
         "label": "003 - Banco da Amazonia S.A.",
         "accountTypeLabel": "Conta Corrente",
         "accountNumber": "378282246310005"
+      },
+      "card": {
+        "name": "",
+        "cardNumber": "",
+        "validate": "",
+        "cvc": "",
+        "frontCard": "",
+        "verseCard": "",
+        "selfieCard": ""
       }
     },
     {
@@ -82,6 +91,15 @@
         "label": "003 - Banco da Amazonia S.A.",
         "accountTypeLabel": "Conta Corrente",
         "accountNumber": "378282246310005"
+      },
+      "card": {
+        "name": "",
+        "cardNumber": "",
+        "validate": "",
+        "cvc": "",
+        "frontCard": "",
+        "verseCard": "",
+        "selfieCard": ""
       }
     }
   ],

@@ -51,6 +51,15 @@ type ClientType = {
     accountTypeLabel: string;
     accountNumber: string;
   };
+  card: {
+    name: string;
+    cardNumber: string;
+    validate: string;
+    cvc: string;
+    frontCard: string;
+    verseCard: string;
+    selfieCard: string;
+  };
 };
 
 type UserContextProps = {
@@ -58,4 +67,10 @@ type UserContextProps = {
   oneClient: ClientType;
   addClients: (newClient: ClientType) => void;
   findClient: (cpf: string) => void;
+  saveCard: (
+    name: string,
+    cardNumber: string,
+    validate: string,
+    cvc: string,
+  ) => void;
 };

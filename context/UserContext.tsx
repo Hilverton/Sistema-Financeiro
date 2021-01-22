@@ -20,6 +20,20 @@ export const UserProvider: React.FC = ({ children }) => {
     setOneClient(client[0]);
   };
 
+  const saveCard = (
+    name: string,
+    cardNumber: string,
+    validate: string,
+    cvc: string,
+  ) => {
+    const updateClientInfo = oneClient;
+    updateClientInfo.card.name = name;
+    updateClientInfo.card.cardNumber = cardNumber;
+    updateClientInfo.card.validate = validate;
+    updateClientInfo.card.cvc = cvc;
+    setOneClient(updateClientInfo);
+  };
+
   return (
     <UserContext.Provider
       value={{
@@ -27,6 +41,7 @@ export const UserProvider: React.FC = ({ children }) => {
         oneClient,
         addClients,
         findClient,
+        saveCard,
       }}
     >
       {children}
