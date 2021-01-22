@@ -6,19 +6,35 @@
       "installments": [
         {
           "id": 1,
-          "installments": 1,
-          "installmentInterest": 100,
-          "installmentValue": 444.0,
-          "fullValue": 444.0,
-          "comission": 1.33
+          "installments": 3,
+          "installmentInterest": 10,
+          "installmentValue": 0,
+          "fullValue": 0,
+          "comission": 0
         },
         {
           "id": 2,
-          "installments": 2,
-          "installmentInterest": 20.5,
-          "installmentValue": 1338.76,
-          "fullValue": 2677.51,
-          "comission": 455.51
+          "installments": 6,
+          "installmentInterest": 20,
+          "installmentValue": 0,
+          "fullValue": 0,
+          "comission": 0
+        },
+        {
+          "id": 3,
+          "installments": 9,
+          "installmentInterest": 30,
+          "installmentValue": 0,
+          "fullValue": 0,
+          "comission": 0
+        },
+        {
+          "id": 4,
+          "installments": 12,
+          "installmentInterest": 50,
+          "installmentValue": 0,
+          "fullValue": 0,
+          "comission": 0
         }
       ]
     },
@@ -30,17 +46,17 @@
           "id": 3,
           "installments": 1,
           "installmentInterest": 10,
-          "installmentValue": 22.0,
-          "fullValue": 224.0,
-          "comission": 1.33
+          "installmentValue": 0,
+          "fullValue": 0,
+          "comission": 0
         },
         {
           "id": 4,
           "installments": 2,
           "installmentInterest": 20.5,
-          "installmentValue": 2.76,
-          "fullValue": 9.51,
-          "comission": 3.51
+          "installmentValue": 0,
+          "fullValue": 0,
+          "comission": 0
         }
       ]
     }
@@ -50,7 +66,7 @@
       "id": 1,
       "name": "Teste Cliente",
       "phone": "71999999999",
-      "cpf": "9999999999",
+      "cpf": "999.999.999-99",
       "bank": {
         "label": "003 - Banco da Amazonia S.A.",
         "accountTypeLabel": "Conta Corrente",
@@ -61,7 +77,7 @@
       "id": 1,
       "name": "Teste Cliente",
       "phone": "71222222222",
-      "cpf": "2222222229",
+      "cpf": "222.222.222-99",
       "bank": {
         "label": "003 - Banco da Amazonia S.A.",
         "accountTypeLabel": "Conta Corrente",

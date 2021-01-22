@@ -15,7 +15,7 @@ const Table: React.FC<TableProps> = ({
     parcelas: number,
     valor: number,
   ) => {
-    setChangeLine({ name: nome, id });
+    setChangeLine(nome, id);
     setChange({
       nome,
       parcelas,

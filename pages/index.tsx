@@ -1,16 +1,24 @@
-import { useState, ChangeEvent } from 'react';
+import { useState, ChangeEvent, useContext } from 'react';
+import { useRouter } from 'next/router';
 import { Layout, Input, Table } from '../components';
 
-import api from '../api.json';
+import { DataContext } from '../context';
+
 import { moneyMask, formattedNumber } from '../utils';
 
 import styles from './index.module.css';
 
 const IndexPage: React.FC = () => {
+  const router = useRouter();
+  const {
+    rateTable,
+    selectedLine,
+    saveLoanAmount,
+    saveSelectedLine,
+  } = useContext(DataContext);
   const [text, setText] = useState('');
   const [showTable, setShowTable] = useState(false);
   const [dataTable, setDataTable] = useState<DataTable>();
-  const [selectedLine, setSelectedLine] = useState<SelectedLineType>();
   const [errorInput, setErrorInput] = useState('');
 
   const handleClick = () => {
@@ -21,11 +29,18 @@ const IndexPage: React.FC = () => {
     const newV = parseFloat(newValue);
 
     if (newV >= 300 && newV <= 10000) {
+      saveLoanAmount(newV);
       setShowTable(true);
       setErrorInput('');
     } else {
       setErrorInput('Valor permitido entre R$ 300,00 e R$ 10.000,00');
       setShowTable(false);
+    }
+  };
+
+  const changePage = () => {
+    if (selectedLine.name !== '') {
+      router.push('/solicitar-emprestimo');
     }
   };
 
@@ -51,13 +66,13 @@ const IndexPage: React.FC = () => {
           </button>
         </div>
         {showTable &&
-          api.rateTable.map((table) => (
+          rateTable?.map((table: RateTable) => (
             <Table
               key={table.id}
               name={table.name}
               installments={table.installments}
               setChange={setDataTable}
-              setChangeLine={setSelectedLine}
+              setChangeLine={saveSelectedLine}
               selectedLine={selectedLine}
             />
           ))}
@@ -71,7 +86,7 @@ const IndexPage: React.FC = () => {
             <button
               type='button'
               className={styles.button}
-              onClick={() => setShowTable(false)}
+              onClick={changePage}
             >
               Avançar
             </button>
