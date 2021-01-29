@@ -6,16 +6,10 @@ const Table: React.FC<TableProps> = ({
   name,
   installments,
   selectedLine,
-  setChange,
   setChangeLine,
 }) => {
   const handleClick = (nome: string, item: Installments) => {
     setChangeLine(nome, item);
-    // setChange({
-    //   nome,
-    //   parcelas,
-    //   valor,
-    // });
   };
 
   return (
