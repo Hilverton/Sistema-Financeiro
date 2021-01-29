@@ -65,7 +65,7 @@ const Sucesso: React.FC = () => {
                 <p className={styles.request_item_text}>4327</p>
                 <p className={styles.request_item_card}>VISA</p>
                 <p className={styles.request_item_text}>
-                  {oneClient.card.validate}
+                  {oneClient.card.validate || ''}
                 </p>
               </div>
               <span
